@@ -1,8 +1,3 @@
-# título #
-## sub título ##
-escrita normal
-- ponto recuado -
-
 ![Scrum2](https://user-images.githubusercontent.com/81706654/117211622-a3085580-adcf-11eb-871f-724bf2af3e9d.png)
 
 # Sprint planning para criar soluções de gestão de estoque. Daily Scrum a ser realizada no início de cada dia.
@@ -73,16 +68,31 @@ Atividade 1.12 - Determinar os produtos mais baratos do estoque.
 - Término: 01/06/2021
 
 Atividade 1.13 - Sprint Review e Sprint Retrospective.
+- Estimativa (pontos): n/a
 - Início: 02/06/2021
 - Término: 02/06/2021
 
 
 ## Sprint 2 - Programação
 
-Atividade 2.0 - Determinar os produtos mais baratos do estoque.
-- Estimativa (pontos): 3
-- Início: 01/06/2021
-- Término: 01/06/2021
+Atividade 2.0 - Preparação de banco de dados referente aos dados pessoais clientes.
+- Estimativa (pontos): 8
+- Início: 07/06/2021
+- Término: 08/06/2021
 
+Atividade 2.1 - Preparação de banco de dados referente ao(s) endereço(s) dos clientes.
+- Estimativa (pontos): 8
+- Início: 09/06/2021
+- Término: 10/06/2021
+
+Atividade 2.2 - Criação de área destinado aos pedidos dos produtos.
+- Estimativa (pontos): 13
+- Início: 14/06/2021
+- Término: 16/06/2021
+
+Atividade 2.3 - Sprint Review e Sprint Retrospective.
+- Estimativa (pontos): n/a
+- Início: 21/06/2021
+- Término: 21/06/2021
 
 ![gamaAcademy2](https://user-images.githubusercontent.com/81706654/117211684-b74c5280-adcf-11eb-978d-ba9366759e6e.png)
