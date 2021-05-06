@@ -72,6 +72,8 @@ Atividade 1.13 - Sprint Review e Sprint Retrospective.
 - Início: 02/06/2021
 - Término: 02/06/2021
 
+![gamaAcademy2](https://user-images.githubusercontent.com/81706654/117211684-b74c5280-adcf-11eb-978d-ba9366759e6e.png)
+
 
 ## Sprint 2 - Programação
 
