@@ -1092,35 +1092,20 @@ var listaProdutos = [
         }
     }
 ]
-function qtTotalItens() {
+
+function exercicio1() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
         let produto = listaProdutos[lista];
         total = total + produto.qtdEstoque;
     }
-    console.log(total)
+    console.log("Total do estoque: " + total + " produtos.")
 }
-qtTotalItens()
+exercicio1()
 
+console.log("")
 
-/*jeito do welisson
-
-function qtTotalDestaque() {
-    let total = 0
-    for (lista = 0; lista < listaProdutos.length; lista++) {
-        let produto = listaProdutos[lista];
-        if(produto.emDestaque == "sim") {
-            produto.emDestaque;
-            total++
-        }
-    }
-    console.log(total)
-}
-qtTotalDestaque()
-*/
-
-
-function qtTotalDestaque() {
+function exercicio2() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
         let produto = listaProdutos[lista];
@@ -1128,12 +1113,13 @@ function qtTotalDestaque() {
             total = total + produto.qtdEstoque;
         }
     }
-    console.log(total)
+    console.log("Total do estoque em destaque: " + total + " produtos.")
 }
-qtTotalDestaque()
+exercicio2()
 
+console.log("")
 
-function qtTotalDisponivel() {
+function exercicio3() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
         let produto = listaProdutos[lista];
@@ -1141,6 +1127,162 @@ function qtTotalDisponivel() {
             total = total + produto.qtdEstoque;
         }
     } 
-    console.log(total)
+    console.log("Total de itens disponíveis: " + total + " produtos.")
 }
-qtTotalDisponivel()
+exercicio3()
+
+console.log("")
+
+function exercicio3a() {
+    let total = 0
+    for (lista = 0; lista < listaProdutos.length; lista++) {
+        let produto = listaProdutos[lista];
+        if(produto.disponivel == "sim") {
+            total = total + 1;
+        }
+    } 
+    console.log("Total de itens disponíveis: " + total + " produtos.")
+}
+exercicio3a()
+
+console.log("")
+
+function exercicio4() {
+    let total = 0
+    for (lista = 0; lista < listaProdutos.length; lista++) {
+        let produto = listaProdutos[lista];
+        total = total + produto.qtdEstoque * produto.preco;
+    }
+    console.log("Valor total do inventário da empresa: R$ " + total)
+}
+exercicio4()
+
+console.log("")
+
+function exercicio5() {
+    let departamento = {
+        id: 0,
+        nomeDepto: "",
+        qtdEstoque: 0
+    }
+
+    let idDepartamento = 0
+    for(lista = 0; lista < listaProdutos.length; lista++){
+        if(idDepartamento != listaProdutos[lista].departamento.idDepto){
+            if (departamento.id != 0){
+                console.log("Situação do estoque por departamento:");
+                console.log(departamento);
+            }
+            idDepartamento = listaProdutos[lista].departamento.idDepto;
+            departamento.id = idDepartamento;
+            departamento.nomeDepto = listaProdutos[lista].departamento.nomeDepto;
+            departamento.qtdEstoque = listaProdutos[lista].qtdEstoque;
+        }
+        else{
+            departamento.qtdEstoque = departamento.qtdEstoque + listaProdutos[lista].qtdEstoque;
+        }
+    }
+    console.log("Situação do estoque por departamento:");
+    console.log(departamento)
+}
+exercicio5()
+
+console.log("")
+
+//NÃO CONSEGUI FAZER O 6.
+
+//muito orgulhoso do 7, consegui sozinho e de duas formas.
+function exercicio7() {
+    let total = 0
+    let totalEstoque = 0
+    //let tMedio = 0
+    for(lista = 0; lista < listaProdutos.length; lista++) {
+        let produto = listaProdutos[lista]
+        total = total + produto.qtdEstoque * produto.preco;
+        totalEstoque = totalEstoque + produto.qtdEstoque;
+        //tMedio = total / totalEstoque;
+    }
+    console.log("Ticket médio da empresa: R$ " + total / totalEstoque)
+    //console.log("Ticket médio da empresa: R$ " + tMedio)
+}
+exercicio7()
+
+console.log("")
+
+//NÃO CONSEGUI FAZER O 8.
+
+//Muita informação na 9, não consegui entender tudo.
+function exercicio9(){
+    let departamento = {
+        id: 0,
+        nomeDepto: "",
+        inventario: 0
+    }
+    
+    let departamentoMaisValioso = {
+        id: 0,
+        nomeDepto: "",
+        inventario: 0
+    }
+    
+    let idDepto = 0
+    for(pos=0; pos<listaProdutos.length; pos++){
+       if(idDepto != listaProdutos[pos].departamento.idDepto){
+            if (departamento.id != 0){
+                if (departamento.inventario > departamentoMaisValioso.inventario){
+                   departamentoMaisValioso.id = departamento.id;
+                   departamentoMaisValioso.nomeDepto = departamento.nomeDepto;
+                   departamentoMaisValioso.inventario = departamento.inventario;
+                }
+            }
+            idDepto = listaProdutos[pos].departamento.idDepto;
+            departamento.id = idDepto;
+            departamento.nomeDepto = listaProdutos[pos].departamento.nomeDepto;
+            departamento.inventario = listaProdutos[pos].qtdEstoque * listaProdutos[pos].preco;
+       }
+       else{
+            departamento.inventario = departamento.inventario + listaProdutos[pos].qtdEstoque * listaProdutos[pos].preco;
+       }
+    }
+    console.log("Departamento mais valioso:");
+    console.log(departamentoMaisValioso);
+}
+exercicio9()
+
+console.log("")
+
+function exercicio10() {
+    let comparar = listaProdutos[0].preco
+    let nomeDepto = ""
+    let nomeProduto = ""
+    let valorProduto = ""
+    for(lista = 0; lista < listaProdutos.length; lista++){
+        if (comparar < listaProdutos[lista].preco){
+            comparar = listaProdutos[lista].preco;
+            nomeDepto = listaProdutos[lista].departamento.nomeDepto;
+            nomeProduto = listaProdutos[lista].descricao;
+            valorProduto = listaProdutos[lista].preco
+        }
+    }
+    console.log(`O produto mais caro da loja é ${nomeProduto}, do departamento ${nomeDepto} e custa ${valorProduto}.`)
+}
+exercicio10()
+
+console.log("")
+
+function exercicio11() {
+    let comparar = listaProdutos[0].preco
+    let nomeDepto = ""
+    let nomeProduto = ""
+    let valorProduto = ""
+    for(lista = 0; lista < listaProdutos.length; lista++) {
+        if (comparar > listaProdutos[lista].preco) {
+            comparar = listaProdutos[lista].preco;
+            nomeDepto = listaProdutos[lista].departamento.nomeDepto;
+            nomeProduto = listaProdutos[lista].descricao;
+            valorProduto = listaProdutos[lista].preco;
+        }
+    }
+    console.log(`O produto mais barato da loja é ${nomeProduto}, do departamento ${nomeDepto} e custa ${valorProduto}.`)
+}
+exercicio11()
