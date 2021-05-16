@@ -5,7 +5,7 @@
 ## Time: Hacker XP37.
 ## Sprint destinada a criar soluções para gerenciar e extrair dados de seus estoques.
 
-## Sprint 1 - Programação.
+## Sprint 1 - Duração prevista: 23 dias. Programação.
 
 Atividade 1.1 - Preparando o ambiente de programação.
 - Estimativa (pontos): 1
@@ -75,7 +75,7 @@ Atividade 1.13 - Sprint Review e Sprint Retrospective.
 ![gamaAcademy2](https://user-images.githubusercontent.com/81706654/117211684-b74c5280-adcf-11eb-978d-ba9366759e6e.png)
 
 
-## Sprint 2 - Programação
+## Sprint 2 - Duração prevista: 14 dias. Programação
 
 Atividade 2.0 - Preparação de banco de dados referente aos dados pessoais clientes.
 - Estimativa (pontos): 8
