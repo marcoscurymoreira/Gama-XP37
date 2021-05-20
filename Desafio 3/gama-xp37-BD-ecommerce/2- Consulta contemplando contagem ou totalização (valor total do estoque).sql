@@ -1,0 +1,1 @@
+select sum(preco) from produtos
