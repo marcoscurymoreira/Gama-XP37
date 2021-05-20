@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `desafio03` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `desafio03`;
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
 -- Host: localhost    Database: desafio03
@@ -100,7 +102,7 @@ DROP TABLE IF EXISTS `enderecos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `enderecos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `tipoendereço` varchar(45) NOT NULL,
+  `tipoendereco` varchar(45) NOT NULL,
   `tipoLogradouro` varchar(45) NOT NULL,
   `logradouro` varchar(255) NOT NULL,
   `numero` int NOT NULL,
@@ -248,12 +250,15 @@ DROP TABLE IF EXISTS `produtospedidos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `produtospedidos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `precoUnitario` double NOT NULL,
   `descricao` varchar(45) NOT NULL,
+  `precoUnitario` double NOT NULL,
   `quantidade` int NOT NULL,
   `precoTotal` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `pedidoId` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fkPedidoId_idx` (`pedidoId`),
+  CONSTRAINT `fkPedidoId` FOREIGN KEY (`pedidoId`) REFERENCES `pedidos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-19 21:53:27
+-- Dump completed on 2021-05-20 16:53:20
