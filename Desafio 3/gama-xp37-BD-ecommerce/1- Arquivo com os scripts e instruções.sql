@@ -172,7 +172,7 @@ CREATE TABLE `pedidos` (
   KEY `fkCliente_idx` (`cliente`),
   CONSTRAINT `fkCliente` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`id`),
   CONSTRAINT `fkPedidoStatus` FOREIGN KEY (`pedidostatus`) REFERENCES `pedidosstatus` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,6 +181,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+INSERT INTO `pedidos` VALUES (1,1234555,'2021-05-21 00:00:00',1,2),(2,123678,'2021-05-20 00:00:00',1,4),(3,456789,'2021-05-19 00:00:00',2,4),(4,934675,'2021-05-17 00:00:00',2,2),(5,983377,'2021-05-13 00:00:00',3,5),(6,129836,'2021-05-12 00:00:00',3,5),(7,873743,'2021-05-10 00:00:00',4,6);
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +249,7 @@ DROP TABLE IF EXISTS `produtospedidos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `produtospedidos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(45) NOT NULL,
+  `descricao` varchar(255) NOT NULL,
   `precoUnitario` double NOT NULL,
   `quantidade` int NOT NULL,
   `precoTotal` varchar(45) NOT NULL,
@@ -259,7 +260,7 @@ CREATE TABLE `produtospedidos` (
   KEY `fkProduto_idx` (`produtofk`),
   CONSTRAINT `fkPedido` FOREIGN KEY (`pedido`) REFERENCES `pedidos` (`id`),
   CONSTRAINT `fkProdutoFk` FOREIGN KEY (`produtofk`) REFERENCES `produtos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,6 +269,7 @@ CREATE TABLE `produtospedidos` (
 
 LOCK TABLES `produtospedidos` WRITE;
 /*!40000 ALTER TABLE `produtospedidos` DISABLE KEYS */;
+INSERT INTO `produtospedidos` VALUES (11,'ADAPTADOR BLUETOOH USB RECEPTOR DE AUDIO P2',5,2,'10',1,1),(15,'ADAPTADOR CONECTOR HDMI FEMEA L / FEMEA',2.8,5,'14',1,2),(16,'ALICATE PARA CRIMPAR TL-315 3 EM 1',15,2,'30',2,3),(17,'ADAPTADOR BLUETOOH USB RECEPTOR DE AUDIO P2',5,3,'15',2,1),(18,'ANTENA P/TV DIGITAL KOLKE KVV288 INTERNA VHF/UHF/FHD PRETO',9,2,'18',3,5),(19,'APRESENTADOR LASER SATELLITE LR-26R PRETO',8,2,'16',4,6),(20,'ASPIRADOR NAPPO NLAR-063 ROBOT WIFI 350ML PRETO',87,1,'87',5,7),(21,'CADEIRA GAMER HAVIT 922 GAMENOTE VERMELHO',185,1,'185',6,11),(22,'CEL SAMSUNG A31 A315G 4GB/128GB AZUL DUAL SIM LTE 6.4',204.5,1,'204.5',7,13);
 /*!40000 ALTER TABLE `produtospedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -280,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-21 19:28:01
+-- Dump completed on 2021-05-24 18:10:46
