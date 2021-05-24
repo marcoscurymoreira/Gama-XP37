@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `desafio03` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `desafio03`;
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
 -- Host: localhost    Database: desafio03
@@ -174,7 +172,7 @@ CREATE TABLE `pedidos` (
   KEY `fkCliente_idx` (`cliente`),
   CONSTRAINT `fkCliente` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`id`),
   CONSTRAINT `fkPedidoStatus` FOREIGN KEY (`pedidostatus`) REFERENCES `pedidosstatus` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,10 +252,13 @@ CREATE TABLE `produtospedidos` (
   `precoUnitario` double NOT NULL,
   `quantidade` int NOT NULL,
   `precoTotal` varchar(45) NOT NULL,
-  `pedidoId` int NOT NULL,
+  `pedido` int NOT NULL,
+  `produtofk` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fkPedidoId_idx` (`pedidoId`),
-  CONSTRAINT `fkPedidoId` FOREIGN KEY (`pedidoId`) REFERENCES `pedidos` (`id`)
+  KEY `fkPedidoId_idx` (`pedido`),
+  KEY `fkProduto_idx` (`produtofk`),
+  CONSTRAINT `fkPedido` FOREIGN KEY (`pedido`) REFERENCES `pedidos` (`id`),
+  CONSTRAINT `fkProdutoFk` FOREIGN KEY (`produtofk`) REFERENCES `produtos` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -279,4 +280,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-20 16:53:20
+-- Dump completed on 2021-05-21 19:28:01

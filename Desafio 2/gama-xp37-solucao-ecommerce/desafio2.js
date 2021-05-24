@@ -1093,23 +1093,27 @@ var listaProdutos = [
     }
 ]
 
+//Quantidade total de itens no estoque
 function exercicio1() {
-    let total = 0
+    let totalDeItens = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
         let produto = listaProdutos[lista];
-        total = total + produto.qtdEstoque;
+        totalDeItens = totalDeItens + produto.qtdEstoque;
     }
     console.log("Total do estoque: " + total + " produtos.")
 }
 exercicio1()
 
-console.log("")
 
+
+
+
+//Quantidade total de itens em destaque
 function exercicio2() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
         let produto = listaProdutos[lista];
-        if(produto.emDestaque == "sim") {
+        if(produto.emDestaque === "sim") {
             total = total + produto.qtdEstoque;
         }
     }
@@ -1117,8 +1121,11 @@ function exercicio2() {
 }
 exercicio2()
 
-console.log("")
 
+
+
+
+//Quantidade total de itens disponíveis
 function exercicio3() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
@@ -1131,8 +1138,11 @@ function exercicio3() {
 }
 exercicio3()
 
-console.log("")
 
+
+
+
+//Quantidade total de itens disponíveis - Modo 2
 function exercicio3a() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
@@ -1145,8 +1155,11 @@ function exercicio3a() {
 }
 exercicio3a()
 
-console.log("")
 
+
+
+
+//Valor total do inventário da empresa
 function exercicio4() {
     let total = 0
     for (lista = 0; lista < listaProdutos.length; lista++) {
@@ -1157,9 +1170,47 @@ function exercicio4() {
 }
 exercicio4()
 
-console.log("")
 
-function exercicio5() {
+
+
+
+//Somatória de itens por departamento
+function somaItensPorDepto() {
+
+    let somatorioDeItens = [];
+    for (let produto = 0; produto < listaProdutos.length; produto++) {
+        let itemCorrenteDaLista = lista[produto]
+        let achou = false
+
+        for (let itemDaMinhaLista = 0; itemDaMinhaLista < somatorioDeItens.length; itemCorrenteDaLista++) {
+            if (somatorioDeItens[itemDaMinhaLista].idDepto === itemCorrenteDaLista.departamento.idDepto) {
+                somatorioDeItens[itemDaMinhaLista].quantidade = somatorioDeItens[itemDaMinhaLista].quantidade + itemCorrenteDaLista.qtdEstoque
+                achou = true;
+            }
+        }
+
+        if (achou === false) {
+            somatorioDeItens.push({ //[].push(algum_valor) ele adiciona um item em um Array/list
+                
+                "idDepto": itemCorrenteDaLista.departamento.idDepto,
+                "nomeDepto": itemCorrenteDaLista.departamento.nomeDepto,
+                "quantidade": itemCorrenteDaLista.qtdEstoque
+                //aqui criamos um objeto novo. {} = objeto
+            })
+        }
+    }
+    console.log(somatorioDeItens)
+}
+somaItensPorDepto()
+
+
+
+
+
+
+
+
+/*function exercicio5() {
     let departamento = {
         id: 0,
         nomeDepto: "",
@@ -1185,13 +1236,20 @@ function exercicio5() {
     console.log("Situação do estoque por departamento:");
     console.log(departamento)
 }
-exercicio5()
+exercicio5()*/
 
-console.log("")
 
+
+
+
+//Valor total do inventário por departamento
 //NÃO CONSEGUI FAZER O 6.
 
-//muito orgulhoso do 7, consegui sozinho e de duas formas.
+
+
+
+
+//Valor do ticket médio dos produtos da empresa
 function exercicio7() {
     let total = 0
     let totalEstoque = 0
@@ -1207,11 +1265,18 @@ function exercicio7() {
 }
 exercicio7()
 
-console.log("")
 
+
+
+
+//Ticket médio por departamento
 //NÃO CONSEGUI FAZER O 8.
 
-//Muita informação na 9, não consegui entender tudo.
+
+
+
+
+//Departamento mais valioso - não fiz
 function exercicio9(){
     let departamento = {
         id: 0,
@@ -1249,8 +1314,11 @@ function exercicio9(){
 }
 exercicio9()
 
-console.log("")
 
+
+
+
+//Produto mais caro da loja
 function exercicio10() {
     let comparar = listaProdutos[0].preco
     let nomeDepto = ""
@@ -1268,8 +1336,11 @@ function exercicio10() {
 }
 exercicio10()
 
-console.log("")
 
+
+
+
+//Produto mais barato da loja
 function exercicio11() {
     let comparar = listaProdutos[0].preco
     let nomeDepto = ""
