@@ -1100,7 +1100,7 @@ function exercicio1() {
         let produto = listaProdutos[lista];
         totalDeItens = totalDeItens + produto.qtdEstoque;
     }
-    console.log("Total do estoque: " + total + " produtos.")
+    console.log("Total do estoque: " + totalDeItens + " produtos.")
 }
 exercicio1()
 
@@ -1175,36 +1175,44 @@ exercicio4()
 
 
 //Somatória de itens por departamento
-function somaItensPorDepto() {
+function somaItensPorDeptoex5() {
 
-    let somatorioDeItens = [];
-    for (let produto = 0; produto < listaProdutos.length; produto++) {
-        let itemCorrenteDaLista = lista[produto]
-        let achou = false
+    let somatorioDeItens = []; //declaramos uma variável que vai receber uma lista [] que começa vazia
+    for (let produto = 0; produto < listaProdutos.length; produto++) {//aqui vamos varrer a "listaProdutos"
+        let itemCorrenteDaLista = listaProdutos[produto]//criamos uma variável
+        let achou = false//neste caso, vamos setar nosso achou como false.
 
-        for (let itemDaMinhaLista = 0; itemDaMinhaLista < somatorioDeItens.length; itemCorrenteDaLista++) {
+        //feito este primeiro for, vamos para o segundo for.
+
+        for (let itemDaMinhaLista = 0; itemDaMinhaLista < somatorioDeItens.length; itemDaMinhaLista++) {//aqui vamos para outra varredura
+            //criamos a variavel itemDaMinhaLista. Vamos varrer o somatorioDeItens que criamos.
             if (somatorioDeItens[itemDaMinhaLista].idDepto === itemCorrenteDaLista.departamento.idDepto) {
+                //se o id do departamento do somatorioDeItens na posição [itemDaMinhaLista]...
+                //for igual ao id do departamento do itemCorrentedaLista...
                 somatorioDeItens[itemDaMinhaLista].quantidade = somatorioDeItens[itemDaMinhaLista].quantidade + itemCorrenteDaLista.qtdEstoque
+                //nós vamos somar a quantidade que já temos
+                //em .quantidade (lá embaixo) e a qtdEstoque da lista original.
                 achou = true;
+                //neste caso, vamos setar nosso achou como true.
             }
         }
 
-        if (achou === false) {
-            somatorioDeItens.push({ //[].push(algum_valor) ele adiciona um item em um Array/list
-                
-                "idDepto": itemCorrenteDaLista.departamento.idDepto,
-                "nomeDepto": itemCorrenteDaLista.departamento.nomeDepto,
-                "quantidade": itemCorrenteDaLista.qtdEstoque
-                //aqui criamos um objeto novo. {} = objeto
+        if (achou === false) {//se o achou for false...
+            somatorioDeItens.push({ //o .push serve para adicionar itens em uma lista[]. No nosso caso, cada vez que ocorrer o if
+                                    //o .push irá adicionar o item(objeto {}) novo na lista[] que criamos "somatorioDeItens"
+
+                "idDepto": itemCorrenteDaLista.departamento.idDepto,//add id do departamento
+                "nomeDepto": itemCorrenteDaLista.departamento.nomeDepto,//add nome do departamento
+                "quantidade": itemCorrenteDaLista.qtdEstoque//add quantidade em estoque
             })
         }
     }
+    //console.log(`A soma dos itens por departamento ficará da seguinte forma: ${somatorioDeItens}`) PQ ISSO NÃO DEU CERTO?
+    //console.log("A soma dos itens por departamento ficará da seguinte forma: " + somatorioDeItens) PQ ISSO NÃO DEU CERTO?
+    console.log("A soma dos itens por departamento ficará da seguinte forma:")
     console.log(somatorioDeItens)
 }
-somaItensPorDepto()
-
-
-
+somaItensPorDeptoex5()
 
 
 
